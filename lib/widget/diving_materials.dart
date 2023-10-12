@@ -10,7 +10,7 @@ class DivingMaterial extends StatelessWidget {
   Widget build(BuildContext context) {
     final style = ElevatedButton.styleFrom(
       textStyle: const TextStyle(
-        fontSize: 12,
+        fontSize: 10,
         fontWeight: FontWeight.bold,
       ),
       backgroundColor: const Color.fromRGBO(35, 87, 155, 1),
@@ -26,6 +26,7 @@ class DivingMaterial extends StatelessWidget {
           children: [
             Container(
               width: double.infinity,
+              height: 150,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(25.0),
                 color: const Color.fromRGBO(35, 87, 155, 1),
@@ -33,22 +34,24 @@ class DivingMaterial extends StatelessWidget {
               child: Column(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.all(16.0),
+                    padding: const EdgeInsets.all(12.0),
                     child: Text(
                       title,
                       textAlign: TextAlign.center,
                       style: const TextStyle(
-                        fontSize: 12.0,
+                        fontSize: 10.0,
                         fontWeight: FontWeight.bold,
                         color: Colors.white,
                       ),
                     ),
                   ),
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(25.0),
-                    child: Image.asset(
-                      imageAsset,
-                      fit: BoxFit.cover,
+                  Expanded(
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(25.0),
+                      child: Image.asset(
+                        imageAsset,
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
                 ],

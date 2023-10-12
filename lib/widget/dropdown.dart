@@ -15,53 +15,44 @@ class _SimpleDropDownState extends State<AutocompleteDropDown> {
   Widget build(BuildContext context) {
     return Form(
       key: _formKey, // Associe la clé au formulaire
-      child: Column(children: [
-        Container(
-          width: 300,
-          padding: const EdgeInsets.all(4.0),
-          child: Column(
-            children: [
-              const SizedBox(height: 10), // Espace vertical de 20 points
-              AutocompleteTextField(
-                items: _countries, // Liste des éléments de l'autocomplétion
-                decoration: InputDecoration(
-                  labelText: 'Localisation',
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(50.0),
+      child: Column(
+        children: [
+          Container(
+            padding: const EdgeInsets.all(2),
+            width: 300,
+            child: Column(
+              children: [
+                const SizedBox(height: 5), // Espace vertical de 20 points
+                AutocompleteTextField(
+                  items: _countries, // Liste des éléments de l'autocomplétion
+                  decoration: InputDecoration(
+                    labelText: 'Localisation',
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(50.0),
+                    ),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(50.0),
+                    ),
                   ),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(50.0),
-                  ),
+                  validator: (val) {
+                    if (_countries.contains(val)) {
+                      return null; // Retourne null si la valeur est valide
+                    } else {
+                      return 'Localisation non trouvée'; // Retourne un message d'erreur si la valeur n'est pas valide
+                    }
+                  },
+                  onItemSelect: (selected) {
+                    setState(() {
+                      // Met à jour le contenu de la page en fonction de l'élément sélectionné lorsqu'un élément est choisi
+                    });
+                  },
                 ),
-                validator: (val) {
-                  if (_countries.contains(val)) {
-                    return null; // Retourne null si la valeur est valide
-                  } else {
-                    return 'Localisation non trouvée'; // Retourne un message d'erreur si la valeur n'est pas valide
-                  }
-                },
-                onItemSelect: (selected) {
-                  setState(() {
-                    // Met à jour le contenu de la page en fonction de l'élément sélectionné lorsqu'un élément est choisi
-                  });
-                },
-              ),
-              const SizedBox(height: 10), // Espace vertical de 20 points
-              // ElevatedButton(
-              //     onPressed: () {
-              //       String message = 'Form invalid';
-              //       if (_formKey.currentState?.validate() ?? false) {
-              //         message = 'Form valid';
-              //       }
-              //       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-              //           content: Text(
-              //               message))); // Affiche un message de validation du formulaire
-              //     },
-              //     child: const Text("Continue"))
-            ],
+                const SizedBox(height: 5)
+              ],
+            ),
           ),
-        ),
-      ]),
+        ],
+      ),
     );
   }
 }
@@ -137,34 +128,35 @@ class _AutocompleteTextFieldState extends State<AutocompleteTextField> {
     var size = renderBox.size;
 
     return OverlayEntry(
-        builder: (context) => Positioned(
-              width: size.width,
-              child: CompositedTransformFollower(
-                link: _layerLink,
-                showWhenUnlinked: false,
-                offset: Offset(0.0, size.height + 5.0),
-                child: Material(
-                  elevation: 4.0,
-                  child: Container(
-                    constraints: const BoxConstraints(maxHeight: 200),
-                    child: ListView.builder(
-                      itemCount: _filteredItems.length,
-                      itemBuilder: (BuildContext context, int index) {
-                        final item = _filteredItems[index];
-                        return ListTile(
-                          title: Text(item),
-                          onTap: () {
-                            _controller.text = item;
-                            _focusNode.unfocus();
-                            widget.onItemSelect(item);
-                          },
-                        );
-                      },
-                    ),
-                  ),
-                ),
+      builder: (context) => Positioned(
+        width: size.width,
+        child: CompositedTransformFollower(
+          link: _layerLink,
+          showWhenUnlinked: false,
+          offset: Offset(0.0, size.height + 5.0),
+          child: Material(
+            elevation: 4.0,
+            child: Container(
+              constraints: const BoxConstraints(maxHeight: 200),
+              child: ListView.builder(
+                itemCount: _filteredItems.length,
+                itemBuilder: (BuildContext context, int index) {
+                  final item = _filteredItems[index];
+                  return ListTile(
+                    title: Text(item),
+                    onTap: () {
+                      _controller.text = item;
+                      _focusNode.unfocus();
+                      widget.onItemSelect(item);
+                    },
+                  );
+                },
               ),
-            ));
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }
 

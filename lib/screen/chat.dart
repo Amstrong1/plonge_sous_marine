@@ -78,7 +78,7 @@ class ChatScreenState extends State<ChatScreen> {
                     shape: BoxShape.rectangle,
                     border: Border.all(
                       color: const Color.fromRGBO(19, 69, 106, 1),
-                      width: 4.0,
+                      width: 2.0,
                     ),
                     borderRadius: BorderRadius.circular(16.0),
                   ),
@@ -87,20 +87,35 @@ class ChatScreenState extends State<ChatScreen> {
                     child: Image.asset(
                       'assets/images/plonge.jpg',
                       fit: BoxFit.cover,
-                      width: 100.0,
-                      height: 100.0,
+                      width: 80.0,
+                      height: 80.0,
                     ),
                   ),
                 ),
                 const SizedBox(width: 10),
                 const SizedBox(
-                  width: 200,
+                  width: 150,
                   child: Column(
                     children: [
                       Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Equipe de plongée sous marine',
+                            'Jessica Durand',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          SizedBox(height: 5),
+                          Text(
+                            'Lieu exact de la plongé',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          SizedBox(height: 5),
+                          Text(
+                            'Date de la plongée',
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                             ),
@@ -123,6 +138,7 @@ class ChatScreenState extends State<ChatScreen> {
                           child: Icon(
                             Icons.delete,
                             color: Colors.white,
+                            size: 20,
                           ),
                         ),
                       )

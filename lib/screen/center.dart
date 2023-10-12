@@ -110,7 +110,7 @@ class CenterScreen extends StatelessWidget {
                                   Text(
                                     'Nom du centre',
                                     style: TextStyle(
-                                      fontSize: 18.0,
+                                      fontSize: 14.0,
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
@@ -124,7 +124,7 @@ class CenterScreen extends StatelessWidget {
                                   Text(
                                     'Lieu du centre',
                                     style: TextStyle(
-                                      fontSize: 18.0,
+                                      fontSize: 14.0,
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
@@ -135,20 +135,11 @@ class CenterScreen extends StatelessWidget {
                         ],
                       ),
                       const SizedBox(height: 15),
-                      const Row(
+                      Row(
                         children: [
-                          Icon(
-                            Icons.facebook,
-                            size: 35,
-                          ),
-                          Icon(
-                            Icons.facebook,
-                            size: 35,
-                          ),
-                          Icon(
-                            Icons.facebook,
-                            size: 35,
-                          ),
+                          Image.asset('assets/images/facebook.png'),
+                          Image.asset('assets/images/instagram.png'),
+                          Image.asset('assets/images/twitter.png'),
                         ],
                       ),
                       const SizedBox(height: 20),

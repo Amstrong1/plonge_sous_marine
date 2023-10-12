@@ -12,7 +12,7 @@ class MsgList extends StatelessWidget {
         title: const Text('Liste des messages'),
       ),
       body: SingleChildScrollView(
-        child: Container(
+        child: Padding(
           padding: const EdgeInsets.all(20),
           child: Column(
             children: [
@@ -27,62 +27,53 @@ class MsgList extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
-                      width: 90.0,
-                      height: 90.0,
+                      width: 80.0,
+                      height: 80.0,
                       decoration: BoxDecoration(
                         shape: BoxShape.rectangle,
                         border: Border.all(
                           color: const Color.fromRGBO(19, 69, 106, 1),
-                          width: 4.0,
+                          width: 2.0,
                         ),
-                        borderRadius: BorderRadius.circular(16.0),
+                        borderRadius: BorderRadius.circular(20.0),
                       ),
                       child: ClipRRect(
-                        borderRadius: BorderRadius.circular(12.0),
+                        borderRadius: BorderRadius.circular(20.0),
                         child: Image.asset(
                           'assets/images/plonge.jpg',
                           fit: BoxFit.cover,
-                          width: 100.0,
-                          height: 100.0,
+                          width: 80.0,
+                          height: 80.0,
                         ),
                       ),
                     ),
                     const SizedBox(width: 10),
                     const SizedBox(
-                      width: 200,
-                      child: Column(
-                        children: [
-                          Column(
-                            children: [
-                              Text(
-                                'Equipe de plongée sous marine',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
+                      width: 150,
+                      child: Text(
+                        'Equipe de plongée sous marine',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
-                    const Expanded(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          SizedBox(height: 50),
-                          SizedBox(
-                            width: 30,
-                            child: CircleAvatar(
-                              backgroundColor: Colors.red,
-                              child: Icon(
-                                Icons.delete,
-                                color: Colors.white,
-                              ),
+                    const Column(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        SizedBox(height: 50),
+                        SizedBox(
+                          width: 30,
+                          child: CircleAvatar(
+                            backgroundColor: Colors.red,
+                            child: Icon(
+                              Icons.delete,
+                              color: Colors.white,
+                              size: 20,
                             ),
-                          )
-                        ],
-                      ),
+                          ),
+                        )
+                      ],
                     ),
                   ],
                 ),
@@ -98,67 +89,77 @@ class MsgList extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
-                      width: 90.0,
-                      height: 90.0,
+                      width: 80.0,
+                      height: 80.0,
                       decoration: BoxDecoration(
                         shape: BoxShape.rectangle,
                         border: Border.all(
                           color: const Color.fromRGBO(19, 69, 106, 1),
-                          width: 4.0,
+                          width: 2.0,
                         ),
-                        borderRadius: BorderRadius.circular(16.0),
+                        borderRadius: BorderRadius.circular(20.0),
                       ),
                       child: ClipRRect(
-                        borderRadius: BorderRadius.circular(12.0),
+                        borderRadius: BorderRadius.circular(20.0),
                         child: Image.asset(
                           'assets/images/plonge.jpg',
                           fit: BoxFit.cover,
-                          width: 100.0,
-                          height: 100.0,
+                          width: 80.0,
+                          height: 80.0,
                         ),
                       ),
                     ),
                     const SizedBox(width: 10),
                     const SizedBox(
-                      width: 200,
+                      width: 150,
                       child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Column(
-                            children: [
-                              Text(
-                                'Equipe de plongée sous marine',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ],
+                          Text(
+                            'Julia Morice',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          SizedBox(height: 5),
+                          Text(
+                            'Lieu exacte de la plongée',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          SizedBox(height: 5),
+                          Text(
+                            'Date de la plongée',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ],
                       ),
                     ),
-                    const Expanded(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          Icon(
-                            Icons.block,
-                            color: Colors.red,
-                            size: 30,
-                          ),
-                          SizedBox(height: 20),
-                          SizedBox(
-                            width: 30,
-                            child: CircleAvatar(
-                              backgroundColor: Colors.red,
-                              child: Icon(
-                                Icons.delete,
-                                color: Colors.white,
-                              ),
+                    const Column(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        Icon(
+                          Icons.block,
+                          color: Colors.red,
+                          size: 30,
+                        ),
+                        SizedBox(height: 20),
+                        SizedBox(
+                          width: 30,
+                          child: CircleAvatar(
+                            backgroundColor: Colors.red,
+                            child: Icon(
+                              Icons.delete,
+                              color: Colors.white,
+                              size: 20,
                             ),
-                          )
-                        ],
-                      ),
+                          ),
+                        )
+                      ],
                     ),
                   ],
                 ),
@@ -174,62 +175,53 @@ class MsgList extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
-                      width: 90.0,
-                      height: 90.0,
+                      width: 80.0,
+                      height: 80.0,
                       decoration: BoxDecoration(
                         shape: BoxShape.rectangle,
                         border: Border.all(
                           color: const Color.fromRGBO(19, 69, 106, 1),
-                          width: 4.0,
+                          width: 2.0,
                         ),
-                        borderRadius: BorderRadius.circular(16.0),
+                        borderRadius: BorderRadius.circular(20.0),
                       ),
                       child: ClipRRect(
-                        borderRadius: BorderRadius.circular(12.0),
+                        borderRadius: BorderRadius.circular(20.0),
                         child: Image.asset(
                           'assets/images/plonge.jpg',
                           fit: BoxFit.cover,
-                          width: 100.0,
-                          height: 100.0,
+                          width: 80.0,
+                          height: 80.0,
                         ),
                       ),
                     ),
                     const SizedBox(width: 10),
                     const SizedBox(
-                      width: 200,
-                      child: Column(
-                        children: [
-                          Column(
-                            children: [
-                              Text(
-                                'Equipe de plongée sous marine',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
+                      width: 150,
+                      child: Text(
+                        'Nom du centre de plongée',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
-                    const Expanded(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          SizedBox(height: 50),
-                          SizedBox(
-                            width: 30,
-                            child: CircleAvatar(
-                              backgroundColor: Colors.red,
-                              child: Icon(
-                                Icons.delete,
-                                color: Colors.white,
-                              ),
+                    const Column(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        SizedBox(height: 50),
+                        SizedBox(
+                          width: 30,
+                          child: CircleAvatar(
+                            backgroundColor: Colors.red,
+                            child: Icon(
+                              Icons.delete,
+                              color: Colors.white,
+                              size: 20,
                             ),
-                          )
-                        ],
-                      ),
+                          ),
+                        )
+                      ],
                     ),
                   ],
                 ),

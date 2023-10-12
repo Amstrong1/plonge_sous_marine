@@ -36,15 +36,39 @@ class MapScreen extends StatelessWidget {
         children: [
           FlutterMap(
             options: MapOptions(
-              center: const LatLng(
-                  51.5, -0.09), // Coordonnées du centre de la carte
-              zoom: 13.0, // Niveau de zoom initial
+              center: const LatLng(46.603354, 1.888334),
+              zoom: 6.0,
             ),
             children: [
               TileLayer(
                 urlTemplate:
                     'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
                 subdomains: const ['a', 'b', 'c'],
+              ),
+              MarkerLayer(
+                markers: [
+                  Marker(
+                    width: 80.0,
+                    height: 80.0,
+                    point: const LatLng(48.8566, 2.3522), // Paris coordinates
+                    builder: (ctx) => const Icon(
+                      Icons.location_on,
+                      color: Colors.blue,
+                      size: 40.0,
+                    ),
+                  ),
+                  Marker(
+                    width: 80.0,
+                    height: 80.0,
+                    point:
+                        const LatLng(43.296398, 5.370000), // Paris coordinates
+                    builder: (ctx) => const Icon(
+                      Icons.location_on,
+                      color: Colors.green,
+                      size: 40.0,
+                    ),
+                  ),
+                ],
               ),
             ],
           ),

@@ -7,6 +7,7 @@ import 'package:v1/model/center_view.dart';
 import 'package:v1/model/exploration.dart';
 import 'package:v1/model/diving_log.dart';
 import 'package:v1/model/diving_materials.dart';
+import 'package:v1/model/person.dart';
 
 const dummyMaterials = [
   Equipment(
@@ -17,11 +18,11 @@ const dummyMaterials = [
   Equipment(
     id: 'c2',
     title: 'Quick & Easy',
-    imageAsset: 'assets/images/plonge.jpg',
+    imageAsset: 'assets/images/fish1.jpg',
   ),
   Equipment(
     id: 'c3',
-    title: 'Bonbone d\'oxygène',
+    title: 'Bonbone d\'oxygène et lunettes de plongé',
     imageAsset: 'assets/images/plonge.jpg',
   )
 ];
@@ -215,4 +216,12 @@ const divingMaterialList = [
     description: '01-01-1972',
     imageAsset: 'assets/images/plonge.jpg',
   )
+];
+
+final List<Person> persons = [
+  Person('John Doe'),
+  Person('Jane Smith'),
+  Person('Bob Johnson'),
+  Person('Alice Brown'),
+  Person('Jane Doe'),
 ];

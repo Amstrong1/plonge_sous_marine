@@ -1,28 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:v1/widget/static_bottom_bar.dart';
-
-class Person {
-  final String name;
-
-  Person(this.name);
-}
+import 'package:v1/setter/dummy_data.dart';
 
 class Participant extends StatelessWidget {
-  final List<Person> persons = [
-    Person('John Doe'),
-    Person('Jane Smith'),
-    Person('Bob Johnson'),
-    Person('Alice Brown'),
-  ];
-
-  Participant({super.key});
+  const Participant({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[100],
       appBar: AppBar(
-        title: const Text('Liste de Personnes'),
+        title: const Text('Liste des participants'),
       ),
       body: ListView.builder(
         itemCount: persons.length,

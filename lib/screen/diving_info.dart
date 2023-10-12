@@ -17,7 +17,7 @@ class DivingInfoScreen extends StatelessWidget {
           children: [
             const SizedBox(height: 20),
             const Padding(
-              padding: EdgeInsets.all(20),
+              padding: EdgeInsets.all(10),
               child: Row(
                 children: [
                   Padding(
@@ -53,16 +53,25 @@ class DivingInfoScreen extends StatelessWidget {
                 ),
                 child: const Column(
                   children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Description de la plongée',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 14,
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 10),
                     Text(
-                      'Description de la plongée',
+                      'Pour effectuer cette plongée vous devez avoir le matériel adapté. Vous pouvez soit le commander ou appeler le centre de plongée pour une location. » Mettre un bouton appeler pour appeler le centre de plongée. Liste du matériel à avoir pour cette plongée. Si l\'utilisateur n\'a pas un article il peut le commander via mon compte Amazon pour l\'acheter. Les flèches noires sont toujours les informations données par le centre de plongée dans son espace.',
                       style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16,
+                        fontSize: 12,
                       ),
                     ),
-                    // SizedBox(height: 10),
-                    // Text(
-                    //     'PAGE EN SAVOIR PLUS Texte : « Pour effectuer cette plongée vous devez avoir le matériel adapté. Vous pouvez soit le commander ou appeler le centre de plongée pour une location. » Mettre un bouton appeler pour appeler le centre de plongée. Liste du matériel à avoir pour cette plongée. Si l’utilisateur n’a pas un article il peut le commander via mon compte Amazon pour l’acheter. Les flèches noires sont toujours les informations données par le centre de plongée dans son espace.'),
                   ],
                 ),
               ),

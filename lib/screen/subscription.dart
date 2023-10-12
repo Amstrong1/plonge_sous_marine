@@ -7,7 +7,7 @@ class Subscription extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ButtonStyle style = ElevatedButton.styleFrom(
-      textStyle: const TextStyle(fontSize: 14),
+      textStyle: const TextStyle(fontSize: 12),
       backgroundColor: const Color.fromRGBO(70, 145, 16, 1),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(50),
@@ -17,7 +17,7 @@ class Subscription extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.grey[100],
       appBar: AppBar(
-        title: const Text('Informations'),
+        title: const Text('Abonnements'),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -27,14 +27,14 @@ class Subscription extends StatelessWidget {
               const SizedBox(
                 child: Text(
                   'Vous souhaitez communiquer avec d\'autres plongeurs pour planifier des explorations ou vendre votre matériel d\'occasion ?',
-                  style: TextStyle(fontSize: 20),
+                  style: TextStyle(fontSize: 18),
                 ),
               ),
               const SizedBox(height: 20),
               const SizedBox(
                 child: Text(
                   'Nous vous donnons la possibilité de communiquer avec d\'autres membres',
-                  style: TextStyle(fontSize: 20),
+                  style: TextStyle(fontSize: 18),
                 ),
               ),
               const SizedBox(height: 50),
@@ -46,7 +46,7 @@ class Subscription extends StatelessWidget {
                       children: [
                         Container(
                           color: const Color.fromRGBO(19, 69, 106, 1),
-                          padding: const EdgeInsets.all(10),
+                          padding: const EdgeInsets.all(5),
                           child: const Row(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
@@ -62,13 +62,8 @@ class Subscription extends StatelessWidget {
                           ),
                         ),
                         Container(
-                          padding: const EdgeInsets.all(10),
-                          margin: const EdgeInsets.only(
-                            top: 10,
-                            bottom: 10,
-                            right: 15,
-                            left: 15,
-                          ),
+                          padding: const EdgeInsets.all(8),
+                          margin: const EdgeInsets.all(5),
                           color: Colors.white,
                           child: Column(
                             children: [
@@ -140,7 +135,7 @@ class Subscription extends StatelessWidget {
                       children: [
                         Container(
                           color: const Color.fromRGBO(19, 69, 106, 1),
-                          padding: const EdgeInsets.all(10),
+                          padding: const EdgeInsets.all(5),
                           child: const Row(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
@@ -156,13 +151,8 @@ class Subscription extends StatelessWidget {
                           ),
                         ),
                         Container(
-                          padding: const EdgeInsets.all(10),
-                          margin: const EdgeInsets.only(
-                            top: 10,
-                            bottom: 10,
-                            right: 15,
-                            left: 15,
-                          ),
+                          padding: const EdgeInsets.all(8),
+                          margin: const EdgeInsets.all(5),
                           color: Colors.white,
                           child: Column(
                             children: [

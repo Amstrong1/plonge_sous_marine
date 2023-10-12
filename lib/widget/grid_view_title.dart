@@ -8,12 +8,9 @@ class GridViewMaterial extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView(
-      padding: const EdgeInsets.all(20),
+      padding: const EdgeInsets.all(10),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        // maxCrossAxisExtent: 150,
         childAspectRatio: 1 / 2,
-        mainAxisSpacing: 10,
-        crossAxisSpacing: 10,
         crossAxisCount: 3,
       ),
       children: dummyMaterials

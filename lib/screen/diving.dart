@@ -9,7 +9,7 @@ class DivingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ButtonStyle style = ElevatedButton.styleFrom(
-      textStyle: const TextStyle(fontSize: 14),
+      textStyle: const TextStyle(fontSize: 12),
       backgroundColor: const Color.fromRGBO(19, 69, 106, 1),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(50),
@@ -43,14 +43,14 @@ class DivingScreen extends StatelessWidget {
             children: [
               const Text(
                 'Nombre de places ' '12/40',
-                style: TextStyle(fontSize: 18.0),
+                style: TextStyle(fontSize: 12.0),
               ),
               const Spacer(),
               const Padding(
                 padding: EdgeInsets.only(left: 8.0, right: 8.0),
                 child: Icon(
                   Icons.calendar_month,
-                  size: 32.0,
+                  size: 28.0,
                 ),
               ),
               ElevatedButton(
@@ -74,8 +74,8 @@ class DivingScreen extends StatelessWidget {
                 Column(
                   children: [
                     Container(
-                      width: 100.0,
-                      height: 100.0,
+                      width: 80.0,
+                      height: 80.0,
                       decoration: BoxDecoration(
                         shape: BoxShape.rectangle,
                         border: Border.all(
@@ -85,8 +85,7 @@ class DivingScreen extends StatelessWidget {
                         borderRadius: BorderRadius.circular(16.0),
                       ),
                       child: ClipRRect(
-                        borderRadius: BorderRadius.circular(
-                            12.0), // Coins arrondis pour l'image
+                        borderRadius: BorderRadius.circular(12.0),
                         child: Image.asset(
                           'assets/images/plonge.jpg',
                           fit: BoxFit.cover,
@@ -101,67 +100,65 @@ class DivingScreen extends StatelessWidget {
                     const Text(
                       'Biographie',
                       style: TextStyle(
-                        fontSize: 18.0,
+                        fontSize: 12.0,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                   ],
                 ),
-                const SizedBox(width: 10),
+                const SizedBox(width: 15),
                 const Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Column(
+                    Text(
+                      'Moniteur: Patrice Morice',
+                      style: TextStyle(
+                        fontSize: 12.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    SizedBox(height: 10),
+                    Row(
                       children: [
+                        Icon(
+                          Icons.star,
+                          size: 25.0,
+                          color: Colors.amber,
+                        ),
+                        Icon(
+                          Icons.star,
+                          size: 25.0,
+                          color: Colors.amber,
+                        ),
+                        Icon(
+                          Icons.star,
+                          size: 25.0,
+                          color: Colors.amber,
+                        ),
+                        Icon(
+                          Icons.star,
+                          size: 25.0,
+                          color: Colors.amber,
+                        ),
+                        Icon(
+                          Icons.star_border,
+                          size: 25.0,
+                        ),
+                        SizedBox(width: 5),
                         Text(
-                          'Moniteur: Patrice Morice',
+                          '(2)',
                           style: TextStyle(
-                            fontSize: 18.0,
+                            fontSize: 12.0,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        Row(
-                          children: [
-                            Icon(
-                              Icons.star,
-                              size: 32.0,
-                              color: Colors.amber,
-                            ),
-                            Icon(
-                              Icons.star,
-                              size: 32.0,
-                              color: Colors.amber,
-                            ),
-                            Icon(
-                              Icons.star,
-                              size: 32.0,
-                              color: Colors.amber,
-                            ),
-                            Icon(
-                              Icons.star,
-                              size: 32.0,
-                              color: Colors.amber,
-                            ),
-                            Icon(
-                              Icons.star_border,
-                              size: 32.0,
-                            ),
-                            SizedBox(width: 10),
-                            Text(
-                              '(2)',
-                              style: TextStyle(
-                                fontSize: 18.0,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            SizedBox(width: 10),
-                            Text(
-                              'Avis',
-                              style: TextStyle(
-                                fontSize: 18.0,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ],
+                        SizedBox(width: 5),
+                        Text(
+                          'Avis',
+                          style: TextStyle(
+                            fontSize: 12.0,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ],
                     ),

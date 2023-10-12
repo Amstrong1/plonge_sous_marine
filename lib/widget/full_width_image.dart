@@ -54,21 +54,17 @@ class FullWidthImageWithText extends StatelessWidget {
           ),
         ),
         Positioned(
-          left: 0.0, // Ajustez la position horizontale selon vos besoins
-          bottom: 25.0, // Ajustez la position verticale selon vos besoins
+          left: 0.0,
+          bottom: 60.0,
           child: Container(
             padding: const EdgeInsets.only(
-                left: 12.0,
-                right: 12.0,
-                top: 8.0,
-                bottom: 8.0), // Espace de remplissage du Container
-            color: Colors.amber, // Couleur de fond du Container
+                left: 12.0, right: 12.0, top: 8.0, bottom: 8.0),
+            color: Colors.amber,
             child: const Text(
               'luxe',
               style: TextStyle(
-                fontSize:
-                    20.0, // Modifiez la taille de la police selon vos besoins
-                color: Colors.white, // Modifiez la couleur selon vos besoins
+                fontSize: 14.0,
+                color: Colors.white,
               ),
             ),
           ),

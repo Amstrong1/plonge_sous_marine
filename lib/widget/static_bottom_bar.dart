@@ -11,9 +11,8 @@ class StaticBottomBar extends StatefulWidget {
 class _BottomNavigationBarWidgetState extends State<StaticBottomBar> {
   @override
   Widget build(BuildContext context) {
-    final ButtonStyle style = ElevatedButton.styleFrom(
+    final ButtonStyle style = TextButton.styleFrom(
       textStyle: const TextStyle(fontSize: 14),
-      backgroundColor: Colors.white,
     );
 
     return Container(
@@ -23,7 +22,7 @@ class _BottomNavigationBarWidgetState extends State<StaticBottomBar> {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: <Widget>[
           Expanded(
-            child: ElevatedButton(
+            child: TextButton(
               style: style,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -44,7 +43,7 @@ class _BottomNavigationBarWidgetState extends State<StaticBottomBar> {
             ),
           ),
           Expanded(
-            child: ElevatedButton(
+            child: TextButton(
               style: style,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -65,7 +64,7 @@ class _BottomNavigationBarWidgetState extends State<StaticBottomBar> {
             ),
           ),
           Expanded(
-            child: ElevatedButton(
+            child: TextButton(
               style: style,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -86,7 +85,7 @@ class _BottomNavigationBarWidgetState extends State<StaticBottomBar> {
             ),
           ),
           Expanded(
-            child: ElevatedButton(
+            child: TextButton(
               style: style,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
