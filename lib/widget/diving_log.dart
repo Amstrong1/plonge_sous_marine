@@ -26,8 +26,6 @@ class DivingLogList extends StatelessWidget {
                   child: Image.asset(
                     divingLog[index].imageAsset,
                     fit: BoxFit.cover,
-                    width: 100.0,
-                    height: 100.0,
                   ),
                 ),
               ),

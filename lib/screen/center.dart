@@ -73,28 +73,23 @@ class CenterScreen extends StatelessWidget {
                           Column(
                             children: [
                               Container(
-                                width: 100.0, // Largeur du cadre
-                                height: 100.0, // Hauteur du cadre
+                                width: 100.0,
+                                height: 100.0,
                                 decoration: BoxDecoration(
-                                  shape: BoxShape
-                                      .rectangle, // Définit la forme du cadre comme un rectangle
+                                  shape: BoxShape.rectangle,
                                   border: Border.all(
-                                    color: const Color.fromRGBO(19, 69, 106,
-                                        1), // Couleur de la bordure du cadre
-                                    width: 4.0, // Largeur de la bordure
+                                    color: const Color.fromRGBO(19, 69, 106, 1),
+                                    width: 4.0,
                                   ),
                                   borderRadius: BorderRadius.circular(16.0),
-                                  // Vous pouvez également définir une couleur de fond ici si nécessaire
                                 ),
                                 child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(
-                                      12.0), // Coins arrondis pour l'image
+                                  borderRadius: BorderRadius.circular(12.0),
                                   child: Image.asset(
                                     'assets/images/plonge.jpg',
-                                    fit: BoxFit
-                                        .cover, // Ajuste l'image pour remplir le cadre
-                                    width: 100.0, // Largeur de l'image
-                                    height: 100.0, // Hauteur de l'image
+                                    fit: BoxFit.cover,
+                                    width: 100.0,
+                                    height: 100.0,
                                   ),
                                 ),
                               ),

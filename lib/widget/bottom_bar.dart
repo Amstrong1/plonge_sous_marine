@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:v1/screen/other.dart';
 import 'package:v1/screen/diving.dart';
 import 'package:v1/screen/center.dart';
 import 'package:v1/screen/member.dart';
 import 'package:v1/screen/msg_list.dart';
-import 'package:v1/screen/other.dart';
 
 class BottomNavigationBarWidget extends StatefulWidget {
   const BottomNavigationBarWidget({super.key, required this.page});
