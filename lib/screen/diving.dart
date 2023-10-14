@@ -21,7 +21,7 @@ class DivingScreen extends StatelessWidget {
       Navigator.of(context).push(
         MaterialPageRoute(
           builder: (_) {
-            return Participant();
+            return const Participant();
           },
         ),
       );

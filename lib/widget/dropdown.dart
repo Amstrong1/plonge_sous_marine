@@ -1,4 +1,8 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 
 class AutocompleteDropDown extends StatefulWidget {
   const AutocompleteDropDown({Key? key}) : super(key: key);
@@ -8,8 +12,37 @@ class AutocompleteDropDown extends StatefulWidget {
 }
 
 class _SimpleDropDownState extends State<AutocompleteDropDown> {
-  // String _selectedItem = ''; // Variable pour suivre l'élément sélectionné
-  final _formKey = GlobalKey<FormState>(); // Clé pour le formulaire
+  final _formKey = GlobalKey<FormState>();
+
+  final List<String> _dropdownItems = [];
+  // TextEditingController _controller = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    // Fetch dropdown items when the widget is initialized
+    _fetchDropdownItems();
+  }
+
+  Future<void> _fetchDropdownItems() async {
+    try {
+      final response = await http
+          .get(Uri.parse('https://laplongeesousmarine.fr/api/get_centres'));
+      if (response.statusCode == 200) {
+        final data = json.decode(response.body);
+        if (data is List<dynamic>) {
+          for (var i = 0; i < data.length; i++) {
+            _dropdownItems.add(data[i]['nom']);
+          }
+        }
+        if (kDebugMode) {
+          print(_dropdownItems);
+        }
+      }
+    } catch (e) {
+      throw Exception('Erreur lors de la récupération des centres');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +57,9 @@ class _SimpleDropDownState extends State<AutocompleteDropDown> {
               children: [
                 const SizedBox(height: 5), // Espace vertical de 20 points
                 AutocompleteTextField(
-                  items: _countries, // Liste des éléments de l'autocomplétion
+                  items:
+                      _dropdownItems, // Liste des éléments de l'autocomplétion
+                  // controller: _controller,
                   decoration: InputDecoration(
                     labelText: 'Localisation',
                     enabledBorder: OutlineInputBorder(
@@ -35,7 +70,7 @@ class _SimpleDropDownState extends State<AutocompleteDropDown> {
                     ),
                   ),
                   validator: (val) {
-                    if (_countries.contains(val)) {
+                    if (_dropdownItems.contains(val)) {
                       return null; // Retourne null si la valeur est valide
                     } else {
                       return 'Localisation non trouvée'; // Retourne un message d'erreur si la valeur n'est pas valide
@@ -159,15 +194,3 @@ class _AutocompleteTextFieldState extends State<AutocompleteTextField> {
     );
   }
 }
-
-/// list of countries
-final List<String> _countries = [
-  "Hyères",
-  "Banyuls-Cerbère",
-  "Arcachon",
-  "Étel",
-  "Glénan",
-  "Fréhel",
-  "Amoco Cadiz",
-  "Cherbourg"
-];
