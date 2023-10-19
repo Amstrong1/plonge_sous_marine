@@ -4,7 +4,7 @@ import 'package:v1/screen/diving_info.dart';
 class FullWidthImageWithText extends StatelessWidget {
   final String imageAssetName;
   final String location;
-  final String last;
+  final int last;
   final String price;
   final String moreBtn;
   final String addBtn;
@@ -47,8 +47,8 @@ class FullWidthImageWithText extends StatelessWidget {
           width: double.infinity,
           child: Opacity(
             opacity: opacity, // Opacité de l'image
-            child: Image.asset(
-              'assets/images/$imageAssetName',
+            child: Image.network(
+              'https://laplongeesousmarine.fr/images/plonges/$imageAssetName',
               fit: BoxFit.cover,
             ),
           ),
@@ -87,7 +87,7 @@ class FullWidthImageWithText extends StatelessWidget {
                 ),
               ),
               Text(
-                last,
+                '$last jours',
                 style: const TextStyle(
                   color: Colors.black, // Couleur du texte
                   fontSize: 20.0, // Taille du texte

@@ -161,7 +161,11 @@ class _LoginPageState extends State<LoginPage> {
                     onPressed: () {},
                     child: Row(
                       children: [
-                        Image.asset('assets/images/facebook.png'),
+                        Image.asset(
+                          'assets/images/facebook.png',
+                          fit: BoxFit.cover,
+                          height: 20,
+                        ),
                         const SizedBox(width: 15),
                         const Text(
                           'Connexion via facebook',

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:v1/widget/dropdown.dart';
 import 'package:v1/screen/map.dart';
 import 'package:v1/screen/center_map.dart';
+// import 'package:v1/model/center.dart';
 
 class CenterScreen extends StatelessWidget {
   const CenterScreen({super.key});
@@ -132,9 +133,18 @@ class CenterScreen extends StatelessWidget {
                       const SizedBox(height: 15),
                       Row(
                         children: [
-                          Image.asset('assets/images/facebook.png'),
-                          Image.asset('assets/images/instagram.png'),
-                          Image.asset('assets/images/twitter.png'),
+                          Image.asset(
+                            'assets/images/facebook.png',
+                            height: 30,
+                          ),
+                          Image.asset(
+                            'assets/images/instagram.png',
+                            height: 30,
+                          ),
+                          Image.asset(
+                            'assets/images/twitter.png',
+                            height: 30,
+                          ),
                         ],
                       ),
                       const SizedBox(height: 20),

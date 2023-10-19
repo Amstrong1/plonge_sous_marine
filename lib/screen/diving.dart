@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:v1/widget/dropdown.dart';
+import 'package:v1/helpers/global.dart';
 import 'package:v1/widget/full_width_image.dart';
 import 'package:v1/screen/participant_list.dart';
 
@@ -30,20 +31,20 @@ class DivingScreen extends StatelessWidget {
     return Column(
       children: [
         const AutocompleteDropDown(),
-        const FullWidthImageWithText(
-          imageAssetName: 'plonge.jpg',
+        FullWidthImageWithText(
+          imageAssetName: '${MyGlobal.centerInfo[0]['image']}',
           opacity: 0.8,
-          location: 'lieu de plongée',
-          last: '1 semaine',
-          price: '1200' ' €',
+          location: MyGlobal.centerInfo[0]['lieu'],
+          last: MyGlobal.centerInfo[0]['duree'] ~/ 24,
+          price: MyGlobal.centerInfo[0]['prix'] + ' €',
         ),
         Padding(
           padding: const EdgeInsets.only(left: 10.0, right: 10.0),
           child: Row(
             children: [
-              const Text(
-                'Nombre de places ' '12/40',
-                style: TextStyle(fontSize: 12.0),
+              Text(
+                'Nombre de places ${MyGlobal.centerInfo[0]['nbPlaces']}',
+                style: const TextStyle(fontSize: 12.0),
               ),
               const Spacer(),
               const Padding(
