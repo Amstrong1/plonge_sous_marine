@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:v1/helpers/global.dart';
 
@@ -20,44 +19,6 @@ class _SimpleDropDownState extends State<AutocompleteDropDown> {
   void initState() {
     super.initState();
     _fetchDropdownItems();
-    _fetchFirstCenterDiving();
-  }
-
-  Future<void> _fetchFirstCenterDiving() async {
-    try {
-      final response2 = await http.get(
-          Uri.parse('https://laplongeesousmarine.fr/api/get_plonge_first'));
-      if (response2.statusCode == 200) {
-        final jsonData = json.decode(response2.body);
-
-        MyGlobal.centerInfo = [
-          {
-            'id': jsonData['id'],
-            'lieu': jsonData['lieu'],
-            'duree': jsonData['duree'],
-            'prix': jsonData['prix'],
-            'nbPlaces': jsonData['nb_places'],
-            'image': jsonData['image'],
-          },
-        ];
-
-        MyGlobal.centerMonitor = [
-          {
-            'id': jsonData['moniteur']['id'],
-            'nom': jsonData['moniteur']['nom'],
-            'image': jsonData['moniteur']['image'],
-            'bio': jsonData['moniteur']['bio'],
-            'note': jsonData['moniteur']['note'],
-          },
-        ];
-
-        if (kDebugMode) {
-          print(MyGlobal.centerInfo[0]['image']);
-        }
-      }
-    } catch (e) {
-      throw Exception(e);
-    }
   }
 
   Future<void> _fetchDropdownItems() async {
@@ -129,7 +90,23 @@ class _SimpleDropDownState extends State<AutocompleteDropDown> {
           'https://laplongeesousmarine.fr/api/get_plonges_centre/$selectedId'));
       if (response2.statusCode == 200) {
         final jsonData = json.decode(response2.body);
-        // CenterData centerData = CenterData.fromJson(jsonData);
+
+        MyGlobal.centerDive = [
+          {
+            'id': jsonData['centre']['id'],
+            'nom': jsonData['centre']['nom'],
+            'lieu': jsonData['centre']['lieu'],
+            'statut': jsonData['centre']['statut'],
+            'responsable': jsonData['centre']['responsable'],
+            'contact': jsonData['centre']['contact'],
+            'email': jsonData['centre']['email'],
+            'description': jsonData['centre']['description'],
+            'titre': jsonData['centre']['titre'],
+            'facebook': jsonData['centre']['facebook'],
+            'twitter': jsonData['centre']['twitter'],
+            'instagram': jsonData['centre']['instagram'],
+          },
+        ];
 
         MyGlobal.centerInfo = [
           {
@@ -139,6 +116,10 @@ class _SimpleDropDownState extends State<AutocompleteDropDown> {
             'prix': jsonData['prix'],
             'nbPlaces': jsonData['nb_places'],
             'image': jsonData['image'],
+            'description': jsonData['description'],
+            'profondeur': jsonData['profondeur'],
+            'temps': jsonData['temps'],
+            'palier': jsonData['pallier'],
           },
         ];
 

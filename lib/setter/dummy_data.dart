@@ -1,31 +1,12 @@
 import 'package:v1/model/folder.dart';
 import 'package:v1/model/species.dart';
 import 'package:v1/model/material.dart';
-import 'package:v1/model/equipment.dart';
 import 'package:v1/model/participant.dart';
 import 'package:v1/model/center_view.dart';
 import 'package:v1/model/exploration.dart';
 import 'package:v1/model/diving_log.dart';
 import 'package:v1/model/diving_materials.dart';
 import 'package:v1/model/person.dart';
-
-const dummyMaterials = [
-  Equipment(
-    id: 'c1',
-    title: 'Masque de plongé',
-    imageAsset: 'assets/images/plonge.jpg',
-  ),
-  Equipment(
-    id: 'c2',
-    title: 'Quick & Easy',
-    imageAsset: 'assets/images/fish1.jpg',
-  ),
-  Equipment(
-    id: 'c3',
-    title: 'Bonbone d\'oxygène et lunettes de plongé',
-    imageAsset: 'assets/images/plonge.jpg',
-  )
-];
 
 const dummyParticipants = [
   Participant(

@@ -59,7 +59,8 @@ class DatabaseHelper {
   Future<bool?> getLog() async {
     final db = await database;
     try {
-      final List<Map<String, dynamic>> logs = await db.query('log', orderBy: 'id DESC', limit: 1);
+      final List<Map<String, dynamic>> logs =
+          await db.query('log', orderBy: 'id DESC', limit: 1);
 
       if (logs.isNotEmpty) {
         final log = logs.first['logged'];
@@ -73,5 +74,10 @@ class DatabaseHelper {
       }
       return null;
     }
+  }
+
+  Future<void> deleteAllLogs() async {
+    final db = await database;
+    await db.delete('log');
   }
 }

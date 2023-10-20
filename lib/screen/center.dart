@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:v1/widget/dropdown.dart';
 import 'package:v1/screen/map.dart';
 import 'package:v1/screen/center_map.dart';
-// import 'package:v1/model/center.dart';
+import 'package:v1/helpers/global.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class CenterScreen extends StatelessWidget {
   const CenterScreen({super.key});
@@ -96,30 +97,31 @@ class CenterScreen extends StatelessWidget {
                               ),
                             ],
                           ),
-                          const SizedBox(width: 30),
-                          const Column(
+                          const SizedBox(width: 10),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Row(
                                 children: [
-                                  Icon(Icons.info),
-                                  SizedBox(width: 10),
+                                  const Icon(Icons.info),
+                                  const SizedBox(width: 10),
                                   Text(
-                                    'Nom du centre',
-                                    style: TextStyle(
+                                    '${MyGlobal.centerDive[0]['nom']}',
+                                    style: const TextStyle(
                                       fontSize: 14.0,
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
                                 ],
                               ),
-                              SizedBox(height: 15),
+                              const SizedBox(height: 15),
                               Row(
                                 children: [
-                                  Icon(Icons.map),
-                                  SizedBox(width: 10),
+                                  const Icon(Icons.map),
+                                  const SizedBox(width: 10),
                                   Text(
-                                    'Lieu du centre',
-                                    style: TextStyle(
+                                    '${MyGlobal.centerDive[0]['lieu']}',
+                                    style: const TextStyle(
                                       fontSize: 14.0,
                                       fontWeight: FontWeight.bold,
                                     ),
@@ -133,17 +135,32 @@ class CenterScreen extends StatelessWidget {
                       const SizedBox(height: 15),
                       Row(
                         children: [
-                          Image.asset(
-                            'assets/images/facebook.png',
-                            height: 30,
+                          GestureDetector(
+                            onTap: () {
+                              'https://www.instagram.com/${MyGlobal.centerDive[0]['facebook']}';
+                            },
+                            child: Image.asset(
+                              'assets/images/facebook.png',
+                              height: 30,
+                            ),
                           ),
-                          Image.asset(
-                            'assets/images/instagram.png',
-                            height: 30,
+                          GestureDetector(
+                            onTap: () {
+                              'https://www.instagram.com/${MyGlobal.centerDive[0]['instagram']}';
+                            },
+                            child: Image.asset(
+                              'assets/images/instagram.png',
+                              height: 30,
+                            ),
                           ),
-                          Image.asset(
-                            'assets/images/twitter.png',
-                            height: 30,
+                          GestureDetector(
+                            onTap: () {
+                              'https://www.instagram.com/${MyGlobal.centerDive[0]['twitter']}';
+                            },
+                            child: Image.asset(
+                              'assets/images/twitter.png',
+                              height: 30,
+                            ),
                           ),
                         ],
                       ),
@@ -151,25 +168,24 @@ class CenterScreen extends StatelessWidget {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const Text(
-                            'Titre du texte',
+                          Text(
+                            '${MyGlobal.centerDive[0]['titre']}',
                             textAlign: TextAlign.right,
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontSize: 15.0,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
                           const SizedBox(height: 10),
-                          const Text(
-                              'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'),
+                          Text('${MyGlobal.centerDive[0]['description']}'),
                           const SizedBox(height: 20),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              const Column(
+                              Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Row(
+                                  const Row(
                                     children: [
                                       DecoratedBox(
                                           decoration: BoxDecoration(
@@ -193,14 +209,15 @@ class CenterScreen extends StatelessWidget {
                                           )),
                                     ],
                                   ),
-                                  SizedBox(height: 20),
+                                  const SizedBox(height: 20),
                                   Column(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Text('Responsable du centre :'),
-                                      SizedBox(height: 10),
-                                      Text('Bettyna DUTSINDE'),
+                                      const Text('Responsable du centre :'),
+                                      const SizedBox(height: 10),
+                                      Text(
+                                          '${MyGlobal.centerDive[0]['responsable']}'),
                                     ],
                                   ),
                                 ],
@@ -221,7 +238,10 @@ class CenterScreen extends StatelessWidget {
                                       width: 150,
                                       child: ElevatedButton(
                                         style: style,
-                                        onPressed: () {},
+                                        onPressed: () {
+                                          _launchPhoneCall(MyGlobal
+                                              .centerDive[0]['contact']);
+                                        },
                                         child: const Text('Appeler'),
                                       ),
                                     ),
@@ -229,7 +249,10 @@ class CenterScreen extends StatelessWidget {
                                       width: 150,
                                       child: ElevatedButton(
                                         style: style,
-                                        onPressed: () {},
+                                        onPressed: () {
+                                          _launchEmail(
+                                              MyGlobal.centerDive[0]['email']);
+                                        },
                                         child: const Text('Envoyer un mail'),
                                       ),
                                     ),
@@ -259,5 +282,23 @@ class CenterScreen extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  _launchPhoneCall(String phoneNumber) async {
+    final phoneUrl = Uri.parse('tel:$phoneNumber');
+    if (await canLaunchUrl(phoneUrl)) {
+      await launchUrl(phoneUrl);
+    } else {
+      throw 'Impossible de lancer l\'appel téléphonique';
+    }
+  }
+
+  _launchEmail(String emailAddress) async {
+    final emailUrl = Uri.parse('mailto:$emailAddress');
+    if (await canLaunchUrl(emailUrl)) {
+      await launchUrl(emailUrl);
+    } else {
+      throw 'Impossible d\'ouvrir l\'application de messagerie';
+    }
   }
 }

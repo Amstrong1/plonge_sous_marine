@@ -76,13 +76,17 @@ class OtherScreen extends StatelessWidget {
           child: Row(
             children: [
               Expanded(
-                child: Container(
-                  padding: const EdgeInsets.all(20),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(20),
+                child: ElevatedButton(
+                  style: style,
+                  onPressed: () {},
+                  child: const Row(
+                    children: [
+                      Text(
+                        'Site Internet',
+                        style: TextStyle(color: Colors.black),
+                      ),
+                    ],
                   ),
-                  child: const Text('Site Internet'),
                 ),
               ),
             ],

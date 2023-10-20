@@ -4,6 +4,7 @@ import 'screen/home.dart';
 import 'screen/create_account.dart';
 import 'widget/bottom_bar.dart';
 import 'package:v1/helpers/db_helper.dart';
+import 'package:v1/screen/login.dart';
 
 void main() {
   runApp(const MyApp());
@@ -53,13 +54,8 @@ class _MyAppState extends State<MyApp> {
           );
         } else if (snapshot.hasError) {
           // Gérez les erreurs ici
-          return MaterialApp(
-            debugShowCheckedModeBanner: false,
-            home: Scaffold(
-              body: Center(
-                child: Text('Error: ${snapshot.error}'),
-              ),
-            ),
+          return Center(
+            child: Text('Error: ${snapshot.error}'),
           );
         } else {
           if (snapshot.data != null) {
@@ -77,6 +73,7 @@ class _MyAppState extends State<MyApp> {
                 '/member': (context) =>
                     const BottomNavigationBarWidget(page: 2),
                 '/other': (context) => const BottomNavigationBarWidget(page: 3),
+                '/login': (context) => const LoginPage(),
               },
               title: 'Plongée',
               theme: ThemeData(

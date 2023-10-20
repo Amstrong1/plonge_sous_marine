@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:v1/widget/grid_view_folder.dart';
 import 'package:v1/widget/static_bottom_bar.dart';
 import 'package:v1/widget/user_form.dart';
+import 'package:v1/helpers/db_helper.dart';
+import 'package:v1/screen/login.dart';
 
 class Profile extends StatelessWidget {
   const Profile({super.key});
@@ -33,6 +35,8 @@ class Profile extends StatelessWidget {
 class MyButton extends StatelessWidget {
   MyButton({super.key});
 
+  final DatabaseHelper databaseHelper = DatabaseHelper();
+
   final style = ElevatedButton.styleFrom(
     backgroundColor: const Color.fromRGBO(19, 69, 106, 1),
     shape: RoundedRectangleBorder(
@@ -46,6 +50,10 @@ class MyButton extends StatelessWidget {
       borderRadius: BorderRadius.circular(50),
     ),
   );
+
+  Future<void> logout(BuildContext context) async {
+    await databaseHelper.deleteAllLogs();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -66,7 +74,13 @@ class MyButton extends StatelessWidget {
           children: [
             ElevatedButton(
               style: style2,
-              onPressed: () {},
+              onPressed: () {
+                logout(context);
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => const LoginPage()),
+                );
+              },
               child: const Text(
                 'Se déconnecter',
                 style: TextStyle(color: Colors.black),

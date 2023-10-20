@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:v1/widget/grid_view_title.dart';
 import 'package:v1/widget/static_bottom_bar.dart';
 
+import '../helpers/global.dart';
+
 class DivingInfoScreen extends StatelessWidget {
   const DivingInfoScreen({super.key});
 
@@ -38,7 +40,7 @@ class DivingInfoScreen extends StatelessWidget {
                 ],
               ),
             ),
-            const SizedBox(
+            SizedBox(
               height: 250,
               child: GridViewMaterial(),
             ),
@@ -51,10 +53,10 @@ class DivingInfoScreen extends StatelessWidget {
                   borderRadius: BorderRadius.circular(50.0), // Coins arrondis
                   color: Colors.white, // Couleur de fond du cadre
                 ),
-                child: const Column(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
+                    const Row(
                       children: [
                         Text(
                           'Description de la plongée',
@@ -65,10 +67,10 @@ class DivingInfoScreen extends StatelessWidget {
                         ),
                       ],
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     Text(
-                      'Pour effectuer cette plongée vous devez avoir le matériel adapté. Vous pouvez soit le commander ou appeler le centre de plongée pour une location. » Mettre un bouton appeler pour appeler le centre de plongée. Liste du matériel à avoir pour cette plongée. Si l\'utilisateur n\'a pas un article il peut le commander via mon compte Amazon pour l\'acheter. Les flèches noires sont toujours les informations données par le centre de plongée dans son espace.',
-                      style: TextStyle(
+                      '${MyGlobal.centerInfo[0]['description']}',
+                      style: const TextStyle(
                         fontSize: 12,
                       ),
                     ),
@@ -81,29 +83,29 @@ class DivingInfoScreen extends StatelessWidget {
               padding: const EdgeInsets.only(left: 30, right: 30),
               child: Container(
                 padding: const EdgeInsets.all(20),
-                child: const Column(
+                child: Column(
                   children: [
                     Row(
                       children: [
-                        Icon(Icons.anchor),
-                        SizedBox(width: 10),
-                        Text('Profondeur'),
+                        const Icon(Icons.anchor),
+                        const SizedBox(width: 10),
+                        Text('${MyGlobal.centerInfo[0]['profondeur']} m'),
                       ],
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     Row(
                       children: [
-                        Icon(Icons.access_time),
-                        SizedBox(width: 10),
-                        Text('Temps'),
+                        const Icon(Icons.access_time),
+                        const SizedBox(width: 10),
+                        Text('${MyGlobal.centerInfo[0]['temps']} h'),
                       ],
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     Row(
                       children: [
-                        Icon(Icons.call_to_action),
-                        SizedBox(width: 10),
-                        Text('Paliers'),
+                        const Icon(Icons.call_to_action),
+                        const SizedBox(width: 10),
+                        Text('${MyGlobal.centerInfo[0]['palier']}'),
                       ],
                     ),
                   ],

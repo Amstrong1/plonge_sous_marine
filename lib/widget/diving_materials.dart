@@ -48,8 +48,8 @@ class DivingMaterial extends StatelessWidget {
                   Expanded(
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(25.0),
-                      child: Image.asset(
-                        imageAsset,
+                      child: Image.network(
+                        'https://laplongeesousmarine.fr/images/materiels/$imageAsset',
                         fit: BoxFit.cover,
                       ),
                     ),
